@@ -1,0 +1,147 @@
+# mod key = Super
+set $mod Mod4
+
+# open and close apps
+bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -fn 'SF Compact Text'"
+bindsym $mod+n exec urxvt
+bindsym $mod+F1 exec urxvt
+bindsym $mod+F2 exec firefox
+bindsym $mod+F3 exec pcmanfm
+bindsym $mod+F4 exec urxvt -e 'nano'
+bindsym $mod+s exec gtk-launch status
+bindsym Ctrl+Shift+3 exec --no-startup-id scrot
+bindsym Ctrl+Shift+4 exec --no-startup-id scrot -u
+bindsym $mod+q kill
+
+# focus move resize windows
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+focus_follows_mouse yes
+bindsym $mod+a focus parent
+# switch focus floating / tiling
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+Shift+space floating toggle
+# move floating windows with mouse + mod
+floating_modifier $mod
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+r mode "resize"
+mode "resize" {
+	bindsym Left resize shrink width 10 px or 10 ppt
+	bindsym Down resize grow height 10 px or 10 ppt
+	bindsym Up resize shrink height 10 px or 10 ppt
+	bindsym Right resize grow width 10 px or 10 ppt
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+# workspaces
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+Ctrl+1 move container to workspace 1
+bindsym $mod+Ctrl+2 move container to workspace 2
+bindsym $mod+Ctrl+3 move container to workspace 3
+bindsym $mod+Ctrl+4 move container to workspace 4
+bindsym $mod+Ctrl+5 move container to workspace 5
+bindsym $mod+Ctrl+6 move container to workspace 6
+bindsym $mod+Ctrl+7 move container to workspace 7
+bindsym $mod+Ctrl+8 move container to workspace 8
+bindsym $mod+Ctrl+9 move container to workspace 9
+bindsym $mod+Shift+1 move container to workspace 1; workspace 1
+bindsym $mod+Shift+2 move container to workspace 2; workspace 2
+bindsym $mod+Shift+3 move container to workspace 3; workspace 3
+bindsym $mod+Shift+4 move container to workspace 4; workspace 4
+bindsym $mod+Shift+5 move container to workspace 5; workspace 5
+bindsym $mod+Shift+6 move container to workspace 6; workspace 6
+bindsym $mod+Shift+7 move container to workspace 7; workspace 7
+bindsym $mod+Shift+8 move container to workspace 8; workspace 8
+bindsym $mod+Shift+9 move container to workspace 9; workspace 9
+bindsym $mod+minus move scratchpad
+bindsym $mod+plus scratchpad show
+
+# reload / restart i3 or the system
+bindsym $mod+c reload
+bindsym $mod+Shift+c restart
+bindsym $mod+Shift+e exec --no-startup-id i3-msg exit, mode "default"
+bindsym $mod+Shift+r exec --no-startup-id systemctl reboot, mode "default"
+bindsym $mod+Shift+s exec --no-startup-id systemctl poweroff, mode "default"
+
+
+
+# audio
+exec --no-startup-id volumeicon
+exec --no-startup-id start-pulseaudio-x11
+bindsym F12 exec "pactl set-sink-volume @DEFAULT_SINK@ +2%"
+bindsym F11 exec "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+
+# screen brightness
+exec "brightnessctl s 1388"
+bindsym F2 exec "brightnessctl -e s +2%"
+bindsym F1 exec "brightnessctl -e s 2%-"
+
+# keyboard backlight
+exec "brightnessctl --device='smc::kbd_backlight' set 255"
+bindsym F6 exec "brightnessctl --device='smc::kbd_backlight' set +5"
+bindsym F5 exec "brightnessctl --device='smc::kbd_backlight' set 5-"
+
+# autostart
+exec --no-startup-id nm-applet
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id picom -b --xrender-sync-fence
+exec xinput set-prop 'bcm5974' 'libinput Natural Scrolling Enabled' 1
+
+
+
+# appearance
+for_window [class="^.*"] border pixel 1
+
+font xft:SF Compact Text
+gaps inner 20
+gaps outer 0
+
+# import colors
+set_from_resource $termbg	background
+set_from_resource $termfg	foreground
+set_from_resource $color0	color0
+set_from_resource $color1	color1
+set_from_resource $color2	color2
+set_from_resource $color3	color3
+set_from_resource $color4	color4
+set_from_resource $color5	color5
+set_from_resource $color6	color6
+set_from_resource $color7	color7
+set_from_resource $color8	color8
+set_from_resource $color9	color9
+set_from_resource $color10	color10
+set_from_resource $color11	color11
+set_from_resource $color12	color12
+set_from_resource $color13	color13
+set_from_resource $color14	color14
+set_from_resource $color15	color15
+set $inviss #00000000
+
+# colors: border, bkground, text, indic
+client.background		$color0
+client.focused			$color6 $color6 $color7 $color6
+client.focused_inactive	$color0 $color0 $color7 $color0
+client.unfocused		$color0 $color0 $color7 $color0
+client.placeholder		$color0 $color0 $color7 $color0 
+client.urgent			$color7 $color7 $color1 $color0

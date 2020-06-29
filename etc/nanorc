@@ -1,0 +1,70 @@
+set titlecolor brightblue
+set statuscolor brightblue
+set selectedcolor brightwhite,blue
+
+bind ^H help all
+bind ^X exit all
+bind ^C cancel all
+
+bind ^O insert main
+bind ^W writeout main
+bind F13 prevbuf main #codes changed in ~/.Xresources, ^Left -> F13
+bind F14 nextbuf main #codes changed in ~/.Xresources, ^Right -> F14
+bind F15 scrollup main #codes changed in ~/.Xresources, ^Up -> F15
+bind F16 scrolldown main #codes changed in ~/.Xresources, ^Down -> F16
+
+bind ^F whereis all
+bind ^G findnext all
+bind ^R replace main
+bind ^T gotoline main
+
+bind ^K cut main
+bind ^C copy main
+bind ^V paste main
+bind ^U paste main
+bind ^Z undo main
+bind ^Y redo main
+
+set wordbounds
+set zap
+set multibuffer
+set constantshow
+set unix
+set tabsize 4
+set autoindent
+set nohelp
+set regexp
+set quickblank
+set mouse
+set nowrap
+set softwrap
+set atblanks
+set smooth
+
+syntax "C" "\.(c(c|pp|xx)?|C)$" "\.(h(h|pp|xx)?|H)$" "\.ii?$" "\.(def)$" "\.ino"
+magic "^(C|C\+\+) (source|program)"
+comment "//"
+color brightred "\<[A-Z_][0-9A-Z_]+\>" 
+color brightred "\<(ll|pii|float|double|bool|char|wchar_t|int|short|long|sizeof|enum|void|static|const|struct|union|typedef|extern|(un)?signed|inline)\>"
+color brightred "\<((s?size)|(char(16|32))|((u_?)?int(_fast|_least)?(8|16|32|64))|u?int(max|ptr))_t\>"
+color brightgreen "\<(class|namespace|template|public|protected|private|typename|this|friend|virtual|using|mutable|volatile|register|explicit)\>"
+color brightgreen "\<(typedef|sizeof|for|if|while|do|else|case|default|switch)\>"
+color brightgreen "\<(try|throw|catch|operator|new|delete)\>"
+color brightgreen "\<((const|dynamic|reinterpret|static)_cast)\>"
+color brightgreen "\<(alignas|alignof|asm|auto|compl|concept|constexpr|decltype|export|noexcept|nullptr|requires|static_assert|thread_local|typeid|override|final)\>"
+color brightgreen "\<(and|and_eq|bitand|bitor|not|not_eq|or|or_eq|xor|xor_eq)\>"
+color brightred "\<(goto|continue|break|return)\>"
+color brightred "'([^'\]|(\\["'abfnrtv\\]))'" "'\\(([0-3]?[0-7]{1,2}))'" "'\\x[0-9A-Fa-f]{1,2}'"
+color green "__attribute__[[:space:]]*\(\([^)]*\)\)" "__(aligned|asm|builtin|hidden|inline|packed|restrict|section|typeof|weak)__"
+
+color brightcyan "[.:,+*|=!\%]" "<" ">" "/" "-" "&" 
+color brightwhite "[(){}]" "\[" "\]"
+color brightyellow ""(\\.|[^"])*""
+
+color brightyellow "^[[:space:]]*#[[:space:]]*include.*"
+color brightcyan "^[[:space:]]*#[[:space:]]*(define|include|(un|ifn?)def|endif|el(if|se)|if|warning|error)"
+
+color brightblue "//.*"
+color brightblue start="/\*" end="\*/"
+
+color ,green "[[:space:]]+$"

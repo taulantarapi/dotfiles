@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec=urxvt -e sh -c "i3status 2>/dev/null & i3-msg 'floating enable; resize shrink width 10000px; resize grow width 480px; resize shrink height 10000px; resize grow height 160px; move position center;' &>/dev/null; read -n 1 -r -s; killall i3status; exit"
+Name=Status

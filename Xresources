@@ -1,0 +1,56 @@
+Xft.dpi:       128
+Xcursor.size:  32
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgb
+Xft.autohint:  false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+*font: 			xft:SF Compact Text
+URxvt*font:		xft:Dank Mono
+
+*background:                      #1a1c1d
+*foreground:                      #f6f6f6
+*fading:                          0
+*fadeColor:                       #1a1c1d
+*cursorColor:                     #f6f6f6
+*pointerColorBackground:          #1a1c1d
+*pointerColorForeground:          #f6f6f6
+
+*color0:                          #242424
+*color8:                          #242424
+*color1:                          #d71a38
+*color9:                          #d71a38
+*color2:                          #18c853
+*color10:                         #18c853
+*color3:                          #fcda1e
+*color11:                         #fcda1e
+*color4:                          #0049ba
+*color12:                         #0049ba
+*color5:                          #871df1
+*color13:                         #871df1
+*color6:                          #0096e0
+*color14:                         #0096e0
+*color7:                          #f6f6f6
+*color15:                         #f6f6f6 
+
+URxvt.depth:                      32
+URxvt.internalBorder:             12
+URxvt*scrollBar:                  false
+URxvt*mouseWheelScrollPage:       false
+URxvt*cursorBlink:                true
+URxvt*background:                 #1a1c1d
+URxvt*foreground:                 #f7f1ff
+URxvt*saveLines:                  6969
+URxvt.iso14755:                   false
+URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
+URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
+URxvt.keysym.Control-Left:        \033[25~
+URxvt.keysym.Shift-Control-Left:  \033[1;6D
+URxvt.keysym.Control-Right:       \033[26~
+URxvt.keysym.Shift-Control-Right: \033[1;6C
+URxvt.keysym.Control-Up:          \033[28~
+URxvt.keysym.Shift-Control-Up:    \033[1;6A
+URxvt.keysym.Control-Down:        \033[29~
+URxvt.keysym.Shift-Control-Down:  \033[1;6

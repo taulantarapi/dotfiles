@@ -1,0 +1,7 @@
+original theme is equilux
+i've changed the following colors in all files:
+3c3c3c -> 1a1c1d
+323232 -> 1a1c1d
+5a5a5a -> 3c3c3c
+414141 -> 3c3c3c
+gtk-2.0/assets/frame-notebook.png changed pixel color to 1a1c1d
